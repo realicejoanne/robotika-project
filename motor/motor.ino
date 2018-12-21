@@ -14,19 +14,6 @@ int kanan;
 int serialData;
 int pinLED = 13;
 
-#define TRIGGER_PIN 19
-#define ECHO_PIN 18
-#define MAX_DISTANCE 500
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
-
-#define TRIGGER_PIN1 17
-#define ECHO_PIN1 16
-NewPing sonar1(TRIGGER_PIN1, ECHO_PIN1, MAX_DISTANCE);
-
-#define TRIGGER_PIN2 15
-#define ECHO_PIN2 14
-NewPing sonar2(TRIGGER_PIN2, ECHO_PIN2, MAX_DISTANCE);
-
 void mundur(){
   digitalWrite(rightMotor_Dir,HIGH);   
   analogWrite(rightMotor_Vel,200);  
@@ -35,9 +22,9 @@ void mundur(){
 }
 void maju(){
    digitalWrite(rightMotor_Dir,LOW); 
-   analogWrite(rightMotor_Vel,200);  
+   analogWrite(rightMotor_Vel,150);  
    digitalWrite(leftMotor_Dir,LOW);  
-   analogWrite(leftMotor_Vel,200);  
+   analogWrite(leftMotor_Vel,150);  
 }
 void berhenti(){
    digitalWrite(rightMotor_Dir,LOW);  
@@ -47,16 +34,16 @@ void berhenti(){
 }
 void belokkiri(){
    digitalWrite(leftMotor_Dir,HIGH);  
-   analogWrite(leftMotor_Vel,200);  
+   analogWrite(leftMotor_Vel,160);  
    digitalWrite(rightMotor_Dir,LOW);  
-   analogWrite(rightMotor_Vel,150);  
+   analogWrite(rightMotor_Vel,140);  
    //delay(200); 
 }
 void belokkanan(){
    digitalWrite(rightMotor_Dir,HIGH);  
-   analogWrite(rightMotor_Vel,200);  
+   analogWrite(rightMotor_Vel,150);  
    digitalWrite(leftMotor_Dir,LOW);  
-   analogWrite(leftMotor_Vel,150);  
+   analogWrite(leftMotor_Vel,130);  
    //delay(200);
 }
 
@@ -87,9 +74,5 @@ void loop(){
       maju();
       digitalWrite(pinLED, HIGH);
     }
-    /*else if(serialData == '0'){
-      berhenti();
-      digitalWrite(pinLED, LOW);
-    }*/
   }
 }
